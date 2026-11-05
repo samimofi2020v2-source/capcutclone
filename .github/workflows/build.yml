@@ -1,4 +1,4 @@
-name: Build CapCutClone APK
+name: Build ZEdit APK
 
 on:
   push:
@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Download source
         run: |
-          curl -L -o src.zip "https://user.uploads.dev/file/2d5c315ba34e5fd142dfc79077a7309d.zip"
+          curl -L -o src.zip "https://user.uploads.dev/file/0fcea3814db03b3fa54257ee447952ac.zip"
           python3 -c "import zipfile; zipfile.ZipFile('src.zip').extractall('app-src')"
-          mv app-src/CapCutClone/* "$GITHUB_WORKSPACE"/
+          mv app-src/ZEdit/* "$GITHUB_WORKSPACE"/
           ls -R | head -40
 
       - name: Set up JDK 17
@@ -37,5 +37,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: CapCutClone-debug
+          name: ZEdit-debug
           path: app/build/outputs/apk/debug/app-debug.apk
